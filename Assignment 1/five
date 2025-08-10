@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int A[10][10];
+    int rows, cols;
+
+    cout << "Enter number of rows and columns: ";
+    cin >> rows >> cols;
+
+    cout << "Enter elements of the matrix:\n";
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cin >> A[i][j];
+        }
+    }
+
+    int rowSum[10] = {0};
+    int colSum[10] = {0};
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            rowSum[i] += A[i][j];
+            colSum[j] += A[i][j];
+        }
+    }
+
+    cout << "\nSum of each row:\n";
+    for (int i = 0; i < rows; i++) {
+        cout << "Row " << i+1 << ": " << rowSum[i] << endl;
+    }
+
+    cout << "\nSum of each column:\n";
+    for (int j = 0; j < cols; j++) {
+        cout << "Column " << j+1 << ": " << colSum[j] << endl;
+    }
+
+    return 0;
+}
