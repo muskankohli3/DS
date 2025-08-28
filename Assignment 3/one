@@ -1,0 +1,108 @@
+#include <iostream>
+using namespace std;
+
+const int MAX_SIZE = 5;
+int top = -1;
+
+bool isFull() {
+    return (top >= MAX_SIZE - 1);
+}
+
+bool isEmpty() {
+    return (top < 0);
+}
+
+void push(int a[], int num) {
+    if (!isFull()) {
+        a[++top] = num;
+        cout << "Stack is: ";
+        for (int i = 0; i <= top; i++)
+            cout << a[i] << " ";
+        cout << endl;
+    } else {
+        cout << "Stack is full" << endl;
+    }
+}
+
+void pop(int a[]) {
+    if (!isEmpty()) {
+        top--;
+        if (!isEmpty()) {
+            cout << "Stack is: ";
+            for (int i = 0; i <= top; i++) {
+                cout << a[i] << " ";
+            }
+            cout << endl;
+        } else {
+            cout << "Stack is empty" << endl;
+        }
+    } else {
+        cout << "Stack is empty" << endl;
+    }
+}
+
+void display(int a[]) {
+    if (!isEmpty()) {
+        cout << "Stack is: ";
+        for (int i = 0; i <= top; i++) {
+            cout << a[i] << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "Stack is empty" << endl;
+    }
+}
+
+void peek(int a[]) {
+    if (!isEmpty()) {
+        cout << "Top element: " << a[top] << endl;
+    } else {
+        cout << "Stack is empty" << endl;
+    }
+}
+
+int main() {
+    int a[MAX_SIZE];
+    int x;
+
+    cout << "Choose a number from 1 to 6 to perform the following functions:\n";
+    cout << "1) push()\n2) pop()\n3) isEmpty()\n4) isFull()\n5) display()\n6) peek()\n";
+    cin >> x;
+
+    switch (x) {
+        case 1: {
+            cout << "Enter the number: ";
+            int num;
+            cin >> num;
+            push(a, num);
+            break;
+        }
+        case 2:
+            pop(a);
+            break;
+        case 3:
+            if (isEmpty()) {
+                cout << "Stack is empty" << endl;
+            } else {
+                cout << "Stack is not empty" << endl;
+            }
+            break;
+        case 4:
+            if (isFull()) {
+                cout << "Stack is full" << endl;
+            } else {
+                cout << "Stack is not full" << endl;
+            }
+            break;
+        case 5:
+            display(a);
+            break;
+        case 6:
+            peek(a);
+            break;
+        default:
+            cout << "Invalid choice" << endl;
+    }
+
+    return 0;
+}
