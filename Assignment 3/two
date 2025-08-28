@@ -1,0 +1,17 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+
+int main(){
+	char a[]="DataStructure";
+	int top=strlen(a)-1;
+	char b[strlen(a)];
+	for(int i=0;i<strlen(a);i++){
+		b[i]=a[top--];
+	}
+	for(int i=0;i<strlen(a);i++){
+		cout<<b[i];
+	}
+	return 0;
+}
